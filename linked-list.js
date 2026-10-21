@@ -1,38 +1,50 @@
 class Node {
     constructor(value) {
         this.value = value;
-        this.next = undefined;
+        this.next = null;
     }
 }
 
 class LinkedList {
-    head = undefined;
+    head = null;
+
+    prepend(value) {
+        const newNode = new Node(value);
+        if (this.head === null) {
+            this.head = newNode;
+        } else {
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+    }
 
     append(value) {
-        const node = new Node(value);
-        if (this.head === undefined) {
-            this.head = node;
+        const newNode = new Node(value);
+        if (this.head === null) {
+            this.head = newNode;
         } else {
-            let tmp = this.head;
-            while (tmp.next !== undefined) {
-                tmp = tmp.next;
+            let tmpNode = this.head;
+            while (tmpNode.next !== null) {
+                tmpNode = tmpNode.next;
             }
-            tmp.next = node;
+            tmpNode.next = newNode;
         }
     }
 
     log() {
-        let tmp = this.head;
-        while (tmp !== undefined) {
-            console.log(tmp.value);
-            tmp = tmp.next;
+        let tmpNode = this.head;
+        while (tmpNode !== null) {
+            console.log(tmpNode.value);
+            tmpNode = tmpNode.next;
         }
     }
 }
 
 const linkedList = new LinkedList();
-linkedList.append(5);
-linkedList.append(10);
-linkedList.append(15);
-linkedList.append(20);
+linkedList.append(1);
+linkedList.prepend(10);
+linkedList.append(2);
+linkedList.prepend(20);
+linkedList.append(3);
+linkedList.prepend(30);
 linkedList.log();
