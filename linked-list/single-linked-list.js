@@ -78,6 +78,41 @@ class SingleLinkedList {
         }
         return array;
     }
+
+    get(index) {
+        let tmpNode = this.head;
+        let currentIndex = 0;
+        while (tmpNode !== null) {
+            if (currentIndex === index) {
+                return tmpNode;
+            }
+            tmpNode = tmpNode.next;
+            currentIndex++;
+        }
+        return null;
+    }
+
+    insertAt(value) {}
+
+    removeAt() {}
+
+    getLength() {
+        let tmpNode = this.head;
+        let length = 0;
+        while (tmpNode !== null) {
+            length++;
+            tmpNode = tmpNode.next;
+        }
+        return length;
+    }
+
+    isEmpty() {
+        return this.head === null;
+    }
+
+    clear() {
+        this.head = null;
+    }
 }
 
 const linkedList = new SingleLinkedList();
@@ -108,3 +143,13 @@ linkedList.print();
 
 linkedList.remove(1);
 linkedList.print();
+
+console.log("Length", linkedList.getLength());
+
+console.log("Node by index 1", linkedList.get(1));
+
+console.log("Is empty", linkedList.isEmpty());
+
+linkedList.clear();
+
+console.log("Is empty", linkedList.isEmpty());
