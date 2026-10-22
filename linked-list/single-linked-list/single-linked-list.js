@@ -1,3 +1,8 @@
+const btn = document.getElementById('btn');
+btn.addEventListener('click', () => {
+    alert('Hello');
+});
+
 class Node {
     constructor(value) {
         this.value = value;
