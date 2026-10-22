@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "single-linked-list": "node linked-list/single-linked-list.js"
   },
   "keywords": [],
   "author": "",

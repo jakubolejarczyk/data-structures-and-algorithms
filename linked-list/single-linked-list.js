@@ -91,8 +91,8 @@ linkedList.prepend(3);
 
 linkedList.print();
 
-console.log(`Find by value 20`, linkedList.find(20));
-console.log(`Find by value 40`, linkedList.find(40));
+console.log('Find by value 20', linkedList.find(20));
+console.log('Find by value 40', linkedList.find(40));
 
 const array = linkedList.toArray();
 console.log(array);
