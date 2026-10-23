@@ -4,13 +4,31 @@ const nodes = document.getElementById("nodes");
 
 let i = 0;
 
-addNodeButton.addEventListener("click", () => {
-  linkedList.append(i++);
-  linkedList.print();
+addNodeButton.addEventListener("click", async () => {
+  await fetch("https://localhost:7197/api/LinkedList/" + i, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+  })
+    .then((response) => {
+      return response.text();
+    })
+    .then((body) => {
+      console.log(body);
+      i++;
+    });
 });
 
-showNodesButton.addEventListener("click", () => {
-  linkedList.print();
+showNodesButton.addEventListener("click", async () => {
+  await fetch("https://localhost:7197/api/LinkedList")
+    .then((response) => {
+      return response.text();
+    })
+    .then((body) => {
+      console.log(body);
+    });
 });
 
 // ----
